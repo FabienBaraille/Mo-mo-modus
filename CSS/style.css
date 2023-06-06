@@ -1,0 +1,59 @@
+body, .tirage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    margin: 10px auto;
+}
+tr, td, table {
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
+main button, aside button{
+    border-radius: 10px;
+    margin: 5px auto;
+    padding: 3px;
+}
+main button {
+    background-color: rgb(255, 204, 75);
+    border: 1px solid darkgoldenrod;   
+}
+aside button {
+    background-color: rgb(111, 255, 75);
+    border: 1px solid darkgreen;
+}
+.td--hidden {
+    background-color: rgb(255, 204, 75);
+    color: rgb(255, 204, 75);
+}
+.tirage__p {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+.p--bowl {
+    background-color: rgb(255, 204, 75);
+    border: 1px solid darkgoldenrod;
+    color: black;
+}
+.p--black {
+    background-color: black;
+    border: 1px solid black;
+}
+.tirage div {
+    color: brown;
+    font-size: 26px;
+    margin: 10px;
+    text-align: center;
+}
+.div--win {
+    color: white;
+    background-color: darkblue;
+    border: 2px solid darkcyan;
+}
