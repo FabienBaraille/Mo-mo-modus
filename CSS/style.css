@@ -36,15 +36,13 @@ aside button {
     border-radius: 50%;
     text-align: center;
     font-size: 20px;
-}
-.p--bowl {
     background-color: rgb(255, 204, 75);
     border: 1px solid darkgoldenrod;
-    color: black;
 }
 .p--black {
     background-color: black;
     border: 1px solid black;
+    color: black;
 }
 .tirage div {
     color: brown;

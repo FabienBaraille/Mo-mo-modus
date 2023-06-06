@@ -1,29 +1,10 @@
 const tirage = {
-    gridAllNumber : [],
-    availableNumber : [],
     init : function() {
-        tirage.addEvent();
-    },
-    makeGrid : function () {
-        tirage.gridAllNumber = tirage.createArray(masqueNumber.motusGrid);
-        const hiddenElmt = document.querySelectorAll('.td--hidden')
-        const hiddenNumber = tirage.createArray(hiddenElmt);
-        tirage.availableNumber = tirage.gridAllNumber.filter(x => !hiddenNumber.includes(x));
-        tirage.availableNumber.push('0', '70');
-    },
-    createArray : function(baseArray) {
-        let arrayToCreate = [];
-        for (let index = 0; index < baseArray.length; index++) {
-            arrayToCreate.push(baseArray[index].id);
-        }
-        return arrayToCreate;
-    },
-    addEvent : function() {
         masqueNumber.buttonDrawElmt.addEventListener('click', tirage.handleDrawNumber);
     },
     handleDrawNumber : function() {
-        let randomTab = masqueNumber.randomNum(0,tirage.availableNumber.length);
-        let drawNumber = tirage.availableNumber.splice(randomTab, 1);
+        let randomTab = masqueNumber.randomNum(0,masqueNumber.availableNumber.length - 1);
+        let drawNumber = masqueNumber.availableNumber.splice(randomTab, 1);
         tirage.screenResults(drawNumber);
         tirage.checkMotus();
         tirage.checkBlack();
@@ -32,11 +13,9 @@ const tirage = {
         const screenP = document.querySelector('.tirage > p');
         screenP.textContent = numberToScreen;
         if (numberToScreen=='0' || numberToScreen=='70') {
-            screenP.classList.remove('p--bowl');
             screenP.classList.add('p--black');
         } else {
             screenP.classList.remove('p--black');
-            screenP.classList.add('p--bowl');
             for (const gridNumber of masqueNumber.motusGrid) {
                 if (gridNumber.id == numberToScreen) {
                     gridNumber.classList.add('td--hidden');                    
@@ -95,7 +74,7 @@ const tirage = {
         masqueNumber.buttonDrawElmt.disabled = true;
     },
     checkBlack : function() {
-        if (!tirage.availableNumber.includes('0') && !tirage.availableNumber.includes('70')) {
+        if (!masqueNumber.availableNumber.includes('0') && !masqueNumber.availableNumber.includes('70')) {
             const loseDiv = document.createElement('div');
             loseDiv.textContent = 'Ho...ho ho ho... !';
             document.querySelector('.tirage').append(loseDiv);
